@@ -164,3 +164,175 @@ message:"Internal Server Error"
 };
 
 
+
+
+
+export const loginCompany = async(req,res)=>{
+
+
+try{
+
+
+const schema = z.object({
+
+    email:z
+    .string()
+    .email("Invalid email"),
+
+
+    password:z
+    .string()
+    .min(1,"Password is required")
+
+});
+
+
+
+const validation = schema.safeParse(req.body);
+
+
+
+if(!validation.success){
+
+    return res.status(400).json({
+
+        message:
+        validation.error.issues[0].message
+
+    });
+
+}
+
+
+
+const {
+    email,
+    password
+
+} = validation.data;
+
+
+
+
+
+// Find company
+
+const company = await Company.findOne({
+    email
+});
+
+
+
+if(!company){
+
+    return res.status(404).json({
+
+        message:
+        "Company not found"
+
+    });
+
+}
+
+
+
+
+
+// Compare password
+
+const isMatch = await bcrypt.compare(
+
+    password,
+
+    company.password
+
+);
+
+
+
+if(!isMatch){
+
+    return res.status(400).json({
+
+        message:
+        "Invalid email or password"
+
+    });
+
+}
+
+
+
+
+
+// Generate Token
+
+const token = jwt.sign(
+
+{
+
+    id:company._id,
+
+    role:"company"
+
+},
+
+process.env.JWT_SECRET,
+
+{
+
+    expiresIn:"1h"
+
+}
+
+);
+
+
+
+
+
+return res.status(200).json({
+
+    message:
+    "Login successful",
+
+    token,
+
+    company:{
+
+        id:company._id,
+
+        companyName:
+        company.companyName,
+
+        email:
+        company.email
+
+    }
+
+});
+
+
+
+}
+
+catch(error){
+
+
+console.log(error);
+
+
+return res.status(500).json({
+
+    message:
+    "Internal Server Error"
+
+});
+
+
+}
+
+
+};
+
+

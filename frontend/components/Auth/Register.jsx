@@ -367,7 +367,8 @@ const RegisterForm = ({
 
 
       <button
-      onClick={handleRegister}
+      
+      type="submit"
 
         disabled={loading}
 

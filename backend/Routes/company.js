@@ -1,6 +1,6 @@
 import express from "express";
 
-import { registerCompany } from "../Controllers/company.js";
+import { registerCompany , loginCompany } from "../Controllers/company.js";
 
 
 const router = express.Router();
@@ -12,6 +12,9 @@ router.post(
     registerCompany
 );
 
-
+router.post(
+    "/login",
+    loginCompany
+);
 
 export default router;
