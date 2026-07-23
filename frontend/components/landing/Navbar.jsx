@@ -134,7 +134,7 @@ const Navbar = () => {
         ">
 
           <Link
-            href="/login"
+            href="company/login"
             className="
             text-sm
             font-medium
@@ -148,7 +148,7 @@ const Navbar = () => {
 
 
           <Link
-            href="/register"
+            href="company/register"
             className="
             px-5
             py-2.5
@@ -303,7 +303,7 @@ const Navbar = () => {
 
 
               <Link
-                href="/login"
+                href="company/login"
                 className="
                 text-slate-700
                 font-medium
@@ -315,7 +315,7 @@ const Navbar = () => {
 
 
               <Link
-                href="/register"
+                href="company/register"
                 className="
                 text-center
 

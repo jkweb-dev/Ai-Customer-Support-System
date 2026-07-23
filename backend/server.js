@@ -7,6 +7,8 @@ import connectDB from "./Configurations/db.js";
 
 dotenv.config();
 
+import CompanyRegisterrouter from "./Routes/company.js";
+
 
 const app = express();
 
@@ -25,15 +27,7 @@ app.use(cors({
 app.use(express.json());
 
 
-// Test Route
-
-app.get("/", (req,res)=>{
-
-    res.json({
-        message:"AI Customer Support Backend Running"
-    });
-
-});
+app.use("/company" , CompanyRegisterrouter)
 
 
 // Server
