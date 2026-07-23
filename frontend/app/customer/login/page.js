@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 
 import AuthLayout from "@/components/Auth/AuthLayout";
 import CustomerLoginForm from "@/components/Auth/customerLoginForm";
+import { useAuth } from "@/Context/AuthProvider";
 
 import handleError from "@/Utils/handleError";
 import axios from "axios";
@@ -15,7 +16,7 @@ import axios from "axios";
 
 const CustomerLoginPage = () => {
 
-
+const {login} = useAuth()
 const router = useRouter();
 
 
@@ -112,14 +113,7 @@ response.status===200 ||
 response.status===201
 ){
 
-
-localStorage.setItem(
-
-"token",
-
-response.data.token
-
-);
+await login(response.data.token)
 
 
 

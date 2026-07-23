@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 
 import AuthLayout from "@/components/Auth/AuthLayout";
 import CustomerRegisterForm from "@/components/Auth/customerRegister";
+import { useAuth } from "@/Context/AuthProvider";
 
 
 import handleError from "@/Utils/handleError";
@@ -15,6 +16,7 @@ import axios from "axios";
 
 const CustomerRegisterPage = () => {
 
+    const {login} = useAuth()
 
 const router = useRouter();
 
@@ -149,13 +151,7 @@ response.status === 201
 ){
 
 
-localStorage.setItem(
-
-"token",
-
-response.data.token
-
-);
+await login(response.data.token)
 
 
 

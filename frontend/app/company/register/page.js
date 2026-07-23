@@ -7,6 +7,7 @@ import toast from "react-hot-toast";
 
 import AuthLayout from "@/components/Auth/AuthLayout";
 import RegisterForm from "@/components/Auth/Register";
+import { useAuth } from "@/Context/AuthProvider";
 
 
 import handleError from "@/Utils/handleError";
@@ -15,6 +16,7 @@ import axios from "axios";
 
  const RegisterPage = () => {
 
+  const {login} = useAuth()
 
   const router = useRouter();
 
@@ -132,11 +134,7 @@ import axios from "axios";
 
   const token = response.data.token;
 
-
-  localStorage.setItem(
-    "token",
-    token
-  );
+await login(token)
 
 
   toast.success(
