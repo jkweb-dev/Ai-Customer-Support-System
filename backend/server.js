@@ -8,6 +8,7 @@ import connectDB from "./Configurations/db.js";
 dotenv.config();
 
 import CompanyRegisterrouter from "./Routes/company.js";
+import CustomerRegisterrouter from "./Routes/customer.js";
 
 
 const app = express();
@@ -28,6 +29,7 @@ app.use(express.json());
 
 
 app.use("/company" , CompanyRegisterrouter)
+app.use("/customer" , CustomerRegisterrouter)
 
 
 // Server
