@@ -2,7 +2,7 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { z } from "zod";
 
-import Customer from "../models/Customer.js";
+import Customer from "../Models/customer.js";
 
 
 
