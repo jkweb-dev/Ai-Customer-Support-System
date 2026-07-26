@@ -130,7 +130,7 @@ response.data.message ||
 
 
 router.push(
-"/companySide/Add-Knowledge"
+"/companySide/Knowledge-List"
 );
 
 

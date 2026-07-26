@@ -34,7 +34,7 @@ icon:LayoutDashboard
 
 {
 name:"Knowledge Base",
-href:"/companySide/knowledge-base",
+href:"/companySide/Knowledge-List",
 icon:BookOpen
 },
 

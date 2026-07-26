@@ -258,7 +258,7 @@ const confirmDelete = async()=>{
 
                     <Link
 
-                        href="/company/knowledge/add"
+                        href="/companySide/Add-Knowledge"
 
                         className="
                         flex
