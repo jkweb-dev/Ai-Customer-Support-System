@@ -130,7 +130,7 @@ response.data.message ||
 
 
 router.push(
-"/company/dashboard"
+"/companySide/Add-Knowledge"
 );
 
 

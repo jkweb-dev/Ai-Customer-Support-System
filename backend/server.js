@@ -10,6 +10,7 @@ dotenv.config();
 import CompanyRegisterrouter from "./Routes/company.js";
 import CustomerRegisterrouter from "./Routes/customer.js";
 import AuthRoute from "./Routes/auth.js";
+import Knowledgerouter from "./Routes/Knowledge.js";
 
 
 const app = express();
@@ -32,6 +33,8 @@ app.use(express.json());
 app.use("/company" , CompanyRegisterrouter)
 app.use("/customer" , CustomerRegisterrouter)
 app.use("/auth" , AuthRoute)
+app.use("/knowledge" , Knowledgerouter)
+
 
 
 // Server
