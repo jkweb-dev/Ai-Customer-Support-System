@@ -12,6 +12,7 @@ import CustomerRegisterrouter from "./Routes/customer.js";
 import AuthRoute from "./Routes/auth.js";
 import Knowledgerouter from "./Routes/Knowledge.js";
 import AiControllerrouter from "./Routes/Ai-Controller.js";
+import AiChatrouter from "./Routes/Customer-ai.js";
 
 
 const app = express();
@@ -36,6 +37,7 @@ app.use("/customer" , CustomerRegisterrouter)
 app.use("/auth" , AuthRoute)
 app.use("/knowledge" , Knowledgerouter)
 app.use("/Ai-settings" , AiControllerrouter)
+app.use("/Ai" , AiChatrouter)
 
 
 

@@ -127,7 +127,7 @@ response.data.message ||
 
 
 router.push(
-"/customer/dashboard"
+"/customerSide/Ai-chat"
 );
 
 
