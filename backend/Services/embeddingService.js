@@ -30,11 +30,6 @@ const generateEmbedding = async(text)=>{
 
 
 
-const test = async() => {
-    await generateEmbedding("How are You")
-}
-
-test()
 
 
 export default generateEmbedding;

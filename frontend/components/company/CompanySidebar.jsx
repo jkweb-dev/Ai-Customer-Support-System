@@ -39,8 +39,8 @@ icon:BookOpen
 },
 
 {
-name:"AI Assistant",
-href:"/companySide/ai-assistant",
+name:"AI Controller",
+href:"/companySide/Ai-Controller",
 icon:Bot
 },
 
