@@ -143,7 +143,7 @@ await login(token)
   );
 
 
-  router.push("/companySide/Knowledge-List");
+  router.push("/companySide/dashboard");
 
 }
 

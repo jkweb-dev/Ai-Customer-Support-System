@@ -15,7 +15,7 @@ import AiControllerrouter from "./Routes/Ai-Controller.js";
 import AiChatrouter from "./Routes/Customer-ai.js";
 import Conversationrouter from "./Routes/conversations.js";
 import Ticketrouter from "./Routes/ticket.js";
-
+import Dashboardrouter from "./Routes/dashboard.js";
 
 const app = express();
 
@@ -42,6 +42,7 @@ app.use("/Ai-settings" , AiControllerrouter)
 app.use("/Ai" , AiChatrouter)
 app.use("/conversations" , Conversationrouter)
 app.use("/tickets" , Ticketrouter)
+app.use("/dashboard" , Dashboardrouter)
 
 
 
