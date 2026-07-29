@@ -8,6 +8,8 @@ import { generateAnswer } from "../Services/chatService.js";
 
 import { cosineSimilarity } from "../Services/cosinesimilarity.js";
 
+import Conversation from "../Models/Conversation.js";
+
 
 export const customerChat = async(req,res)=>{
 
@@ -29,9 +31,9 @@ export const customerChat = async(req,res)=>{
 }
 
         const {
-            question
-        } = req.body;
-
+    question,
+    conversationId
+} = req.body;
 
 
 
@@ -48,6 +50,38 @@ export const customerChat = async(req,res)=>{
         }
 
 
+
+        let conversation;
+
+        if(conversationId){
+
+
+    conversation =
+    await Conversation.findOne({
+
+        _id:conversationId,
+
+        customerId:req.user.id
+
+    });
+
+
+}
+
+if(!conversation){
+
+
+    conversation =
+    await Conversation.create({
+
+        customerId:req.user.id,
+
+        messages:[]
+
+    });
+
+
+}
 
 
 
@@ -82,7 +116,16 @@ export const customerChat = async(req,res)=>{
 
 
 
+conversation.messages.push({
 
+    role:"user",
+
+    text:question
+
+});
+
+
+await conversation.save();
 
 
 
@@ -232,6 +275,21 @@ export const customerChat = async(req,res)=>{
         ){
 
 
+            conversation.messages.push({
+
+    role:"assistant",
+
+    text:settings.fallbackMessage
+
+});
+
+
+conversation.lastMessage = settings.fallbackMessage;
+
+
+await conversation.save();
+
+
             return res.status(200).json({
 
                 answer:
@@ -240,6 +298,7 @@ export const customerChat = async(req,res)=>{
                 sources:[]
 
             });
+
 
 
         }
@@ -344,6 +403,19 @@ ${settings.behavior.language}
         );
 
 
+        conversation.messages.push({
+
+    role:"assistant",
+
+    text:answer
+
+});
+
+
+conversation.lastMessage = answer;
+
+
+await conversation.save();
 
 
 
@@ -352,6 +424,9 @@ ${settings.behavior.language}
 
 
         return res.status(200).json({
+
+            conversationId:
+    conversation._id,
 
             answer,
 

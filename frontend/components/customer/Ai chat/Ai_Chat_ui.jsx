@@ -13,6 +13,7 @@ import {
     Sparkles
 } from "lucide-react";
 
+import ChatSidebar from "./chatSidebar";
 
 import api from "@/Services/api";
 
@@ -30,6 +31,8 @@ export default function AIChat(){
 
 
     const [loading,setLoading]=useState(false);
+
+    const [conversationId,setConversationId]=useState(null);
 
 
 
@@ -86,14 +89,19 @@ export default function AIChat(){
 
                 {
 
-                    question:
-                    userMessage.text
+                    question: userMessage.text ,
+                      conversationId
+
 
                 }
 
             );
 
 
+
+            setConversationId(
+    res.data.conversationId
+);
 
 
 
@@ -145,18 +153,36 @@ export default function AIChat(){
 
     return (
 
+<div
+    className="
+    flex
+    h-screen
+    bg-gradient-to-br
+    from-indigo-50
+    via-white
+    to-purple-50
+    "
+>
 
-        <div
-            className="
-            flex
-            h-screen
-            flex-col
-            bg-gradient-to-br
-            from-indigo-50
-            via-white
-            to-purple-50
-            "
-        >
+    <ChatSidebar
+
+    conversationId={conversationId}
+
+    setConversationId={setConversationId}
+
+    setMessages={setMessages}
+
+     refreshKey={conversationId}
+
+/>
+
+<div
+    className="
+    flex
+    flex-1
+    flex-col
+    "
+>
 
 
 
@@ -164,18 +190,19 @@ export default function AIChat(){
 
 
             {/* Header */}
-
-
-            <div
-                className="
-                border-b
-                border-slate-200
-                bg-white/70
-                backdrop-blur-xl
-                px-5
-                py-5
-                "
-            >
+<div
+    className="
+    border-b
+    border-slate-200
+    bg-white/70
+    backdrop-blur-xl
+    px-5
+    py-5
+    lg:px-5
+    pl-20
+    lg:pl-5
+    "
+>
 
 
                 <div
@@ -611,7 +638,7 @@ export default function AIChat(){
 
 
 
-
+</div>
 
 
         </div>
