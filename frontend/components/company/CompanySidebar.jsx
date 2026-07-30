@@ -52,7 +52,7 @@ icon:MessageCircle
 
 {
 name:"Tickets",
-href:"/companySide/tickets",
+href:"/companySide/my-tickets",
 icon:Ticket
 },
 
