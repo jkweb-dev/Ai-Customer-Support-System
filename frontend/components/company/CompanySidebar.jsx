@@ -13,11 +13,22 @@ import {
   BarChart3,
   Settings,
   Sparkles
+
 } from "lucide-react";
 
+import {
+  LogOut
+} from "lucide-react";
 
+import { useAuth } from "@/Context/AuthProvider";
 
 const CompanySidebar = () => {
+
+  
+const {
+  logout
+}=useAuth();
+
 
 
 const pathname = usePathname();
@@ -68,11 +79,6 @@ href:"/companySide/Analytics",
 icon:BarChart3
 },
 
-{
-name:"Settings",
-href:"/companySide/Settings",
-icon:Settings
-}
 
 ];
 
@@ -313,7 +319,53 @@ active
 
 
 
+<button
 
+onClick={logout}
+
+className="
+mb-5
+
+flex
+items-center
+gap-3
+
+px-4
+py-3
+
+rounded-xl
+
+text-sm
+font-medium
+
+text-slate-600
+
+hover:bg-red-50
+
+hover:text-red-600
+
+transition-all
+duration-200
+
+"
+
+>
+
+<LogOut
+
+size={20}
+
+/>
+
+
+<span>
+
+Logout
+
+</span>
+
+
+</button>
 
 
 {/* Bottom Company Card */}

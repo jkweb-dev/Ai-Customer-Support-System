@@ -134,7 +134,7 @@ const Navbar = () => {
         ">
 
           <Link
-            href="company/login"
+            href="customer/login"
             className="
             text-sm
             font-medium
@@ -148,7 +148,7 @@ const Navbar = () => {
 
 
           <Link
-            href="company/register"
+            href="customer/register"
             className="
             px-5
             py-2.5
