@@ -46,7 +46,7 @@ icon:Bot
 
 {
 name:"Conversations",
-href:"/companySide/conversations",
+href:"/companySide/Conversations",
 icon:MessageCircle
 },
 
