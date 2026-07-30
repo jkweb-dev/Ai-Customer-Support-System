@@ -18,6 +18,7 @@ import Ticketrouter from "./Routes/ticket.js";
 import Dashboardrouter from "./Routes/dashboard.js";
 import CompanyTicketrouter from "./Routes/CompanyTicket.js";
 import CompanyConversationrouter from "./Routes/CompanyConversation.js";
+import CompanyCustomerrouter from "./Routes/CustomerManagement.js";
 
 
 const app = express();
@@ -48,6 +49,7 @@ app.use("/tickets" , Ticketrouter)
 app.use("/dashboard" , Dashboardrouter)
 app.use("/company/tickets" , CompanyTicketrouter)
 app.use("/company/conversations" ,CompanyConversationrouter)
+app.use("/company/customers" , CompanyCustomerrouter)
 
 
 
