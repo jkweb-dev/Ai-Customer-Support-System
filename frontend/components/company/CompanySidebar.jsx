@@ -64,13 +64,13 @@ icon:Users
 
 {
 name:"Analytics",
-href:"/companySide/analytics",
+href:"/companySide/Analytics",
 icon:BarChart3
 },
 
 {
 name:"Settings",
-href:"/companySide/settings",
+href:"/companySide/Settings",
 icon:Settings
 }
 

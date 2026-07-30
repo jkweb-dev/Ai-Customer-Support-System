@@ -19,6 +19,7 @@ import Dashboardrouter from "./Routes/dashboard.js";
 import CompanyTicketrouter from "./Routes/CompanyTicket.js";
 import CompanyConversationrouter from "./Routes/CompanyConversation.js";
 import CompanyCustomerrouter from "./Routes/CustomerManagement.js";
+import Analyticsrouter from "./Routes/Analytics.js";
 
 
 const app = express();
@@ -50,7 +51,7 @@ app.use("/dashboard" , Dashboardrouter)
 app.use("/company/tickets" , CompanyTicketrouter)
 app.use("/company/conversations" ,CompanyConversationrouter)
 app.use("/company/customers" , CompanyCustomerrouter)
-
+app.use("/company/analytics" , Analyticsrouter)
 
 
 // Server
